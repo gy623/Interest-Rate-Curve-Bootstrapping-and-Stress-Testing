@@ -13,13 +13,14 @@ continuous mean-variance portfolios and measure performance differences in backt
 
 ## Project Structure
 
-quant-mip-portfolio/
+Mixed-Integer Optimisation for Portfolio Selection/
 ├─ data/              # Market data (not stored in repo if large)
 ├─ notebooks/         # Exploratory and results notebooks
 ├─ src/               # Source code (data loading, optimizer, backtesting)
 ├─ reports/           # Final report, slides, derivations
 ├─ requirements.txt   # Python dependencies
 └─ README.md          # Project overview
+
 
 ## Planned Deliverables
 - Reproducible Jupyter notebooks demonstrating methodology and results.
