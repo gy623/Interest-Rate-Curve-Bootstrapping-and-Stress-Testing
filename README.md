@@ -58,17 +58,17 @@ portfolio risk management, and hedging strategy.
 
 ## Features
 
-- ✅ **Live data ingestion** from FRED API (US Treasury CMT rates)
-- ✅ **Multi-instrument bootstrapping** — deposits, SOFR futures, and swaps
-- ✅ **Two interpolation methods** — Cubic Spline and Nelson-Siegel parametric fit
-- ✅ **8 pre-built stress scenarios** — parallel, steepener, flattener, twist
-- ✅ **Full bond pricing engine** — DCF using zero curve discount factors
-- ✅ **Modified Duration & Convexity** — analytical and numerical computation
-- ✅ **Key Rate Duration (KRD) ladder** — 14-bucket sensitivity grid
-- ✅ **Portfolio-level P&L matrix** — bonds × scenarios
-- ✅ **Built-in validation** — KRD sum ≈ Modified Duration check
-- ✅ **Interactive Jupyter notebooks** — step-by-step walkthrough
-- ✅ **Extensible design** — plug in Bloomberg/Refinitiv data, QuantLib, PCA shocks
+- **Live data ingestion** from FRED API (US Treasury CMT rates)
+- **Multi-instrument bootstrapping** — deposits, SOFR futures, and swaps
+- **Two interpolation methods** — Cubic Spline and Nelson-Siegel parametric fit
+- **8 pre-built stress scenarios** — parallel, steepener, flattener, twist
+- **Full bond pricing engine** — DCF using zero curve discount factors
+- **Modified Duration & Convexity** — analytical and numerical computation
+- **Key Rate Duration (KRD) ladder** — 14-bucket sensitivity grid
+- **Portfolio-level P&L matrix** — bonds × scenarios
+- **Built-in validation** — KRD sum ≈ Modified Duration check
+- **Interactive Jupyter notebooks** — step-by-step walkthrough
+- **Extensible design** — plug in Bloomberg/Refinitiv data, QuantLib, PCA shocks
 
 ---
 
