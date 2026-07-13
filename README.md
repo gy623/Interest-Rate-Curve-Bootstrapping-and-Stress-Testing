@@ -1,75 +1,164 @@
-# Interest Rate Curve Boostrapping and Stress Testing
-
-> A professional-grade fixed income risk analytics pipeline for constructing
-> zero-coupon yield curves from SOFR / Treasury market data, performing
-> curve interpolation, applying interest rate stress scenarios, and computing
-> full portfolio risk metrics including Duration, Convexity, and Key Rate Durations (KRDs).
-
----
-
-## 🧭 Table of Contents
-
-- [Overview](#overview)
-- [Features](#features)
-- [Project Structure](#project-structure)
-- [Installation](#installation)
-- [Quick Start](#quick-start)
-- [Pipeline Architecture](#pipeline-architecture)
-- [Modules](#modules)
-  - [Data Loader](#1-data-loader)
-  - [Bootstrapper](#2-bootstrapper)
-  - [Interpolator](#3-interpolator)
-  - [Stress Engine](#4-stress-engine)
-  - [Bond Pricer](#5-bond-pricer)
-  - [Risk Metrics](#6-risk-metrics)
-  - [Portfolio Runner](#7-portfolio-stress-runner)
-- [Stress Scenarios](#stress-scenarios)
-- [Risk Metrics Reference](#risk-metrics-reference)
-- [Configuration](#configuration)
-- [Running the Notebooks](#running-the-notebooks)
-- [Testing](#testing)
-- [Validation](#validation)
-- [Roadmap](#roadmap)
-- [References](#references)
-- [License](#license)
-
----
+# Interest Rate Curve Bootstrapping & Stress Testing
 
 ## Overview
 
-This project implements a **full fixed income risk analytics pipeline** used in
-institutional trading desks, risk management teams, and quantitative research.
+This project builds an end-to-end fixed income analytics framework in Python, focusing on yield curve construction, bond pricing, and interest rate risk analysis. Starting from market quotes, the project bootstraps a zero-coupon yield curve, fits continuous term structure models, prices fixed-income securities, and evaluates portfolio sensitivity under a range of interest rate stress scenarios.
 
-Starting from raw market instruments — US Treasury CMT rates, SOFR deposit
-rates, SOFR futures, and interest rate swaps — the pipeline:
+The project is developed primarily in **Jupyter Notebooks**, making each stage self-contained and easy to follow while demonstrating both the underlying financial theory and its implementation.
 
-1. **Bootstraps** a zero-coupon discount factor curve
-2. **Interpolates** the curve continuously using Cubic Spline or Nelson-Siegel
-3. **Applies** parallel and non-parallel interest rate shocks
-4. **Reprices** bond portfolios under each stressed curve
-5. **Computes** Modified Duration, Convexity, and Key Rate Durations (KRDs)
-6. **Produces** a full P&L attribution table across all bonds and scenarios
+---
 
-This is the same analytical framework used by fixed income desks at major
-financial institutions for regulatory stress testing (FRTB, Basel III),
-portfolio risk management, and hedging strategy.
+## Objectives
+
+* Build zero-coupon yield curves from Treasury and/or SOFR market data
+* Implement yield curve interpolation and curve fitting techniques
+* Price zero-coupon and coupon-paying bonds
+* Construct and value bond portfolios
+* Apply parallel and non-parallel interest rate shocks
+* Compute standard fixed income risk measures
+* Produce clear visualizations of yield curves, portfolio valuation, and risk metrics
 
 ---
 
 ## Features
 
-- **Live data ingestion** from FRED API (US Treasury CMT rates)
-- **Multi-instrument bootstrapping** — deposits, SOFR futures, and swaps
-- **Two interpolation methods** — Cubic Spline and Nelson-Siegel parametric fit
-- **8 pre-built stress scenarios** — parallel, steepener, flattener, twist
-- **Full bond pricing engine** — DCF using zero curve discount factors
-- **Modified Duration & Convexity** — analytical and numerical computation
-- **Key Rate Duration (KRD) ladder** — 14-bucket sensitivity grid
-- **Portfolio-level P&L matrix** — bonds × scenarios
-- **Built-in validation** — KRD sum ≈ Modified Duration check
-- **Interactive Jupyter notebooks** — step-by-step walkthrough
-- **Extensible design** — plug in Bloomberg/Refinitiv data, QuantLib, PCA shocks
+### Yield Curve Construction
+
+* Load Treasury or SOFR market quotes
+* Clean and validate market data
+* Bootstrap discount factors
+* Construct zero-coupon spot curves
+
+### Curve Fitting
+
+* Linear interpolation
+* Cubic spline interpolation
+* Nelson–Siegel model fitting
+* Comparison of interpolation methods
+
+### Bond Pricing
+
+* Cash flow generation
+* Present value pricing
+* Zero-coupon bonds
+* Fixed-rate coupon bonds
+
+### Portfolio Analytics
+
+* Portfolio valuation
+* Market value aggregation
+* Portfolio exposure analysis
+
+### Interest Rate Stress Testing
+
+* Parallel yield curve shifts
+* Bear steepeners
+* Bull flatteners
+* Yield curve twists
+* Portfolio repricing under stressed scenarios
+
+### Risk Measures
+
+* Macaulay Duration
+* Modified Duration
+* Convexity
+* DV01 / PV01
+* Key Rate Durations (KRDs)
 
 ---
 
 ## Project Structure
+
+```text
+interest-rate-curve/
+│
+├── data/
+│   ├── treasury_quotes.csv
+│   ├── sofr_quotes.csv
+│   ├── sample_bonds.csv
+│   └── portfolio.csv
+│
+├── notebooks/
+│   ├── 01_market_data.ipynb
+│   ├── 02_bootstrap_zero_curve.ipynb
+│   ├── 03_curve_interpolation.ipynb
+│   ├── 04_bond_pricing.ipynb
+│   ├── 05_portfolio_analysis.ipynb
+│   ├── 06_stress_testing.ipynb
+│   ├── 07_risk_measures.ipynb
+│   └── 08_final_case_study.ipynb
+│
+├── figures/
+├── README.md
+└── requirements.txt
+```
+
+---
+
+## Workflow
+
+1. Load and clean market data.
+2. Bootstrap a zero-coupon yield curve from observed market quotes.
+3. Fit continuous yield curves using multiple interpolation techniques.
+4. Price individual bonds using discount factors.
+5. Construct and value a bond portfolio.
+6. Apply interest rate stress scenarios.
+7. Reprice the portfolio under each scenario.
+8. Calculate portfolio risk measures and summarize results.
+
+---
+
+## Technologies
+
+* Python
+* Jupyter Notebook
+* NumPy
+* Pandas
+* SciPy
+* Matplotlib
+* Plotly (optional)
+
+---
+
+## Learning Outcomes
+
+This project demonstrates practical skills in:
+
+* Fixed Income Analytics
+* Yield Curve Construction
+* Financial Engineering
+* Numerical Methods
+* Optimization
+* Risk Management
+* Scientific Computing with Python
+* Financial Data Visualization
+
+---
+
+## Future Improvements
+
+Potential extensions include:
+
+* SOFR swap curve bootstrapping
+* Svensson yield curve model
+* Historical yield curve replay
+* Principal Component Analysis (PCA) of yield curve movements
+* Value-at-Risk (VaR)
+* Hedging with Treasury futures
+* Interactive Streamlit dashboard
+
+---
+
+## References
+
+* John C. Hull — *Options, Futures, and Other Derivatives*
+* Frank J. Fabozzi — *Fixed Income Analysis*
+* Tuckman & Serrat — *Fixed Income Securities*
+* U.S. Department of the Treasury
+* Federal Reserve Bank of New York (SOFR)
+
+---
+
+## License
+
+This project is intended for educational and portfolio purposes. Feel free to use, modify, and extend the code with appropriate attribution.
