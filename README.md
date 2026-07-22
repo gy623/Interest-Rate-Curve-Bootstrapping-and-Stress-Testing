@@ -142,11 +142,14 @@ Convert discrete discount factors into a continuous zero-coupon yield curve.
 
 The spot rate is calculated as:
 
-$$
-r(T)
-=
-DF(T)^{-\frac1T}-1
-$$
+\[
+r(T)=DF(T)^{-\frac{1}{T}}-1
+\]
+
+where:
+
+- $DF(T)$ = discount factor
+- $T$ = maturity
 
 The resulting curve is interpolated using:
 
@@ -409,17 +412,21 @@ The project compares exact repricing against duration-based approximations.
 
 First-order approximation:
 
-$$\frac{\Delta P}{P}
+$$
+\frac{\Delta P}{P}
 \approx
--D\Delta y$$
+-D\Delta y
+$$
 
 Including convexity:
 
-$$\frac{\Delta P}{P}
+$$
+\frac{\Delta P}{P}
 \approx
 -D\Delta y
 +
-\frac12C(\Delta y)^2$$
+\frac12C(\Delta y)^2
+$$
 
 The comparison demonstrates why convexity improves accuracy for larger interest rate movements.
 
