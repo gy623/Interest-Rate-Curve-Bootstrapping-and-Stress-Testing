@@ -174,18 +174,7 @@ Advantages:
 A parametric representation of the yield curve:
 
 $$
-r(T)
-=
-\beta_0
-+
-\beta_1
-\frac{1-e^{-T/\tau}}{T/\tau}
-+
-\beta_2
-\left(
-\frac{1-e^{-T/\tau}}{T/\tau}
--e^{-T/\tau}
-\right)
+r(T)=\beta_0+\beta_1\frac{1-e^{-T/\tau}}{T/\tau}+\beta_2\left(\frac{1-e^{-T/\tau}}{T/\tau}-e^{-T/\tau}\right)
 $$
 
 where:
@@ -299,14 +288,7 @@ Quantify interest rate sensitivity using standard fixed-income risk metrics.
 
 Measures the weighted average time of receiving a bond's cash flows:
 
-$$
-D_M
-=
-\frac{
-\sum_i t_iPV(CF_i)
-}
-{P}
-$$
+$$D_M=\frac{\sum_i t_iPV(CF_i)}{P}$$
 
 where:
 
@@ -320,16 +302,7 @@ where:
 
 Since the project prices using a full spot curve, duration is calculated through curve bumping:
 
-$$
-D_{eff}
-=
-\frac{
-P_{-}-P_{+}
-}
-{
-2P_0\Delta y
-}
-$$
+$$D_{eff}=\frac{P_{-}-P_{+}}{2P_0\Delta y}$$
 
 where:
 
@@ -347,16 +320,7 @@ Convexity captures the curvature of the price-yield relationship.
 
 Effective convexity is calculated numerically:
 
-$$
-C
-=
-\frac{
-P_{+}+P_{-}-2P_0
-}
-{
-P_0(\Delta y)^2
-}
-$$
+$$C=\frac{P_{+}+P_{-}-2P_0}{P_0(\Delta y)^2}$$
 
 A higher convexity indicates:
 
@@ -385,16 +349,7 @@ Key Rate Duration measures sensitivity to individual maturities.
 
 For maturity $k$:
 
-$$
-KRD_k
-=
-\frac{
-V_0-V_k
-}
-{
-V_0\Delta y
-}
-$$
+$$KRD_k=\frac{V_0-V_k}{V_0\Delta y}$$
 
 where only the $k$-year point on the yield curve is shifted.
 
