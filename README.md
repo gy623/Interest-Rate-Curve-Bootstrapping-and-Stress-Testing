@@ -409,21 +409,17 @@ The project compares exact repricing against duration-based approximations.
 
 First-order approximation:
 
-$$
-\frac{\Delta P}{P}
+$$\frac{\Delta P}{P}
 \approx
--D\Delta y
-$$
+-D\Delta y$$
 
 Including convexity:
 
-$$
-\frac{\Delta P}{P}
+$$\frac{\Delta P}{P}
 \approx
 -D\Delta y
 +
-\frac12C(\Delta y)^2
-$$
+\frac12C(\Delta y)^2$$
 
 The comparison demonstrates why convexity improves accuracy for larger interest rate movements.
 
