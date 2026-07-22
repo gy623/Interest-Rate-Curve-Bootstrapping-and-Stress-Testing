@@ -142,9 +142,9 @@ Convert discrete discount factors into a continuous zero-coupon yield curve.
 
 The spot rate is calculated as:
 
-\
+$$
 r(T)=DF(T)^{-\frac{1}{T}}-1
-\
+$$
 
 where:
 
